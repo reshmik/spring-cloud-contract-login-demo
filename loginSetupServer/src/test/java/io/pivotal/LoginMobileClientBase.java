@@ -4,7 +4,7 @@ import org.junit.Before;
 
 import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
 
-public class UserloginBase {
+public class LoginMobileClientBase {
 	
 	@Before
     public void setup() {

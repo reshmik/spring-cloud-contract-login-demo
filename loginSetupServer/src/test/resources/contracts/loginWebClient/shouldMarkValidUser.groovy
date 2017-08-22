@@ -1,22 +1,21 @@
 package contracts
 
 org.springframework.cloud.contract.spec.Contract.make {
-	request { 
+	request {
 		method 'PUT'
 		url '/userlogin'
-		body([ 
-			   username: 'vinay',
-			   password: '321'
-		])
+		body([
+			   username: 'springdays',
+			   password: '123'		])
 		headers {
 			contentType('application/json')
 		}
 	}
-	response { 
-		status 200 
-		body([ 
-			   userLoginCheckStatus : 'NOT_OKAY',
-			   rejectionReason: 'CONTAINS_SPECIAL_CHARACTER'
+	response {
+		status 200
+		body([
+			   userLoginCheckStatus : 'OK',
+			   rejectionReason: 'NO_REASON'
 		])
 		headers {
 			contentType('application/json')

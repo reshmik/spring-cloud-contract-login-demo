@@ -1,23 +1,24 @@
+
 package contracts
 
 org.springframework.cloud.contract.spec.Contract.make {
-	request {
+	request { 
 		method 'PUT'
-		url '/userlogin/v1'
-		body([
-			   username: 'cloudnativemeetup',
+		url '/userlogin'
+		body([ 
+			   username: 'springdays',
 			   password: '123',
-			   authcode: '123'
+			   authcode: '32a'
 		])
 		headers {
 			contentType('application/json')
 		}
 	}
-	response {
-		status 200
-		body([
-			   userLoginCheckStatus : 'OK',
-			   rejectionReason: 'NO_REASON'
+	response { 
+		status 200 
+		body([ 
+			   userLoginCheckStatus : 'NOT_OKAY',
+			   rejectionReason: 'CONTAINS_SPECIAL_CHARACTER'
 		])
 		headers {
 			contentType('application/json')
