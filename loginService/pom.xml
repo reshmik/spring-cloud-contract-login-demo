@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.pivotal</groupId>
+	<artifactId>loginService</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>loginService</name>
+	<description>Producer for Spring Cloud Contract Demo</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.10.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud-contract.version>1.2.4.RELEASE</spring-cloud-contract.version>
+		<spring-cloud.version>Edgware.SR3</spring-cloud.version>
+		<excludeBuildFolders>true</excludeBuildFolders>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-contract-wiremock</artifactId>
+			<scope>test</scope>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.3.12.RELEASE</version>
+        </dependency>
+		<dependency>
+			<groupId>com.jayway.restassured</groupId>
+			<artifactId>spring-mock-mvc</artifactId>
+			<version>2.9.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>4.3.10.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>4.3.10.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+					<plugin>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
+					</plugin>
+		<plugin>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
+				<version>${spring-cloud-contract.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<packageWithBaseClasses>io.pivotal</packageWithBaseClasses>
+					<baseClassForTests> io.pivotal.WebloginBase</baseClassForTests>
+				</configuration>
+			</plugin>
+	</plugins>
+
+
+	</build>
+<repositories>
+<repository>
+	<id>spring-snapshots</id>
+	<name>Spring Snapshots</name>
+	<url>https://repo.spring.io/snapshot</url>
+	<snapshots>
+		<enabled>true</enabled>
+	</snapshots>
+</repository>
+<repository>
+	<id>spring-milestones</id>
+	<name>Spring Milestones</name>
+	<url>https://repo.spring.io/milestone</url>
+	<snapshots>
+		<enabled>false</enabled>
+	</snapshots>
+</repository>
+<repository>
+	<id>spring-releases</id>
+	<name>Spring Releases</name>
+	<url>https://repo.spring.io/release</url>
+	<snapshots>
+		<enabled>false</enabled>
+	</snapshots>
+</repository>
+</repositories>
+<pluginRepositories>
+<pluginRepository>
+	<id>spring-snapshots</id>
+	<name>Spring Snapshots</name>
+	<url>https://repo.spring.io/snapshot</url>
+	<snapshots>
+		<enabled>true</enabled>
+	</snapshots>
+</pluginRepository>
+<pluginRepository>
+	<id>spring-milestones</id>
+	<name>Spring Milestones</name>
+	<url>https://repo.spring.io/milestone</url>
+	<snapshots>
+		<enabled>false</enabled>
+	</snapshots>
+</pluginRepository>
+<pluginRepository>
+	<id>spring-releases</id>
+	<name>Spring Releases</name>
+	<url>https://repo.spring.io/release</url>
+	<snapshots>
+		<enabled>false</enabled>
+	</snapshots>
+</pluginRepository>
+</pluginRepositories>
+
+</project>
